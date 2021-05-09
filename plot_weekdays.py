@@ -3,13 +3,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-month = r"alltime"
 lookback_from = '01/01/2021' #MM/DD/YYYY
 
 def memberflow():
-    frame = "_memberflow.csv"
-    f = month + frame
-    df = pd.read_csv(f, header=0)
+    frame = "https://raw.githubusercontent.com/Comrades-Gate/Herald-Bot/main/alltime_memberflow.csv"
+    df = pd.read_csv(frame, header=0)
     df["DateTime"] = pd.to_datetime(df.DateTime)
     df["Weekday"] = df.DateTime.dt.day_name()
     df["Day"] = df["DateTime"].dt.day
@@ -48,9 +46,8 @@ memberflow()
 
 
 def messages():
-    frame = "_messages.csv"
-    f = month + frame
-    df = pd.read_csv(f, header=0)
+    frame = "https://raw.githubusercontent.com/Comrades-Gate/Herald-Bot/main/alltime_messages.csv"
+    df = pd.read_csv(frame, header=0)
     df["DateTime"] = pd.to_datetime(df.DateTime)
     df["Weekday"] = df.DateTime.dt.day_name()
     df["Day"] = df["DateTime"].dt.day
@@ -87,9 +84,8 @@ messages()
 
 
 def voice():
-    frame = "_voice.csv"
-    f = month + frame
-    df = pd.read_csv(f, header=0)
+    frame = "https://raw.githubusercontent.com/Comrades-Gate/Herald-Bot/main/alltime_voice.csv"
+    df = pd.read_csv(frame, header=0)
     df["DateTime"] = pd.to_datetime(df.DateTime)
     df["Weekday"] = df.DateTime.dt.day_name()
     df["Day"] = df["DateTime"].dt.day

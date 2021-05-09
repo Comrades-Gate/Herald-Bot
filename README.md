@@ -8,7 +8,9 @@ The prefix `/hb` is hard-coded into main.py to invoke any of the bot features.
 
 # Bot Features
 `/hbsuggest <your_message>` - Posts an embed to the Herald Bot feature suggestion channel at Comrade's Gate that contains (1) the name of the user who made the suggestion and (2) a string of text provided by the user. Herald will automatically delete the invocation.
+
 `/hbquote` - Herald bot replies with a random quote.
+
 `/hbisad` - Feeling down? Herald will cheer you up!
 
 # Selected Examples

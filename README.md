@@ -24,4 +24,9 @@ The prefix `/hb` is hard-coded into main.py to invoke any of the bot features.
 # Upcoming Patches
 - Working on adding a feature that will return server information in .png format using a variation of the command: /hbserverstats
 - Constructing a /hbhelp command for server-side bot documentation.
-- Will be adding an error-management function that will return the proper usage of a command if an argument is missing.
+- May add a feature that automatically reports any 216 error codes to development.
+
+# Error Codes
+- Code 0 = The command you have entered does not exist.
+- Code 1 = The command is missing required arguments.
+- Code 216 = Undefined error (report to development).

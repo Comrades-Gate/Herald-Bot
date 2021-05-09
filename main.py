@@ -6,20 +6,24 @@ import random
 from keep_alive import keep_alive
 from discord.ext import commands
 
-my_secret = os.environ['TOKEN'] # Encrypted bot invocation token.
+theKey = os.environ['TOKEN'] # Encrypted bot invocation token.
 
+### Set bot prefix.
+bot = commands.Bot(command_prefix='/hb')
+
+### Connect to Discord.
+@bot.event
+async def on_ready():
+  print(f'{bot.user.name} is now online.')
+
+### Functions called by command functions.
 def get_quote():
   response = requests.get("https://zenquotes.io/api/random")
   json_data = json.loads(response.text)
   quote = json_data[0]['q'] + " **- "+ json_data[0]['a'] + "**"
   return quote
 
-bot = commands.Bot(command_prefix='/hb')
-
-@bot.event
-async def on_ready():
-  print(f'{bot.user.name} is now online.')
-
+### Command functions paired to /hb
 @bot.command()
 async def suggest(ctx, *, arg):
   embed = discord.Embed(title='Herald Bot Suggestions', description=f'Submitted by: {ctx.author.mention}', color=discord.Color.green())
@@ -29,6 +33,10 @@ async def suggest(ctx, *, arg):
   await msg.add_reaction('👍') # yea
   await msg.add_reaction('👎') # nay
   await ctx.message.delete()
+@suggest.error # Command-specific error message.
+async def suggest_error(ctx, error):
+  if isinstance(error, commands.MissingRequiredArgument):
+    await ctx.send('```/hbsuggest <your_suggestion> \n           ^^^^^^^^^^^^^^^^^\n\n<your_suggestion> is a required argument!```')
 
 @bot.command()
 async def quote(message):
@@ -40,6 +48,18 @@ starter_encouragements = ["Hang in there!","You are precious cargo!","I think yo
 async def isad(message):
   await message.channel.send(random.choice(starter_encouragements))
 
+### General error-handling response.
+@bot.event
+async def on_command_error(ctx, error):
+  if isinstance(error, commands.CommandNotFound):
+    await ctx.send('`Code 0 - Command does not exist.`')
+  elif isinstance(error, commands.MissingRequiredArgument):
+    await ctx.send('`Code 1 - Missing a required argument.`')
+  else:
+    await ctx.send('`Code 216 - Unknown error code. Embrace the mystery, my friend!`')
+
+
+### Turn the bot on.
 keep_alive()
-my_secret = os.environ['TOKEN']
-bot.run(my_secret)
+theKey = os.environ['TOKEN']
+bot.run(theKey)

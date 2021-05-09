@@ -2,8 +2,9 @@
 
 ## Supported Versions
 
-All versions of Herald Bot are currently being
-supported with security updates.
+Only the latest release (Herald Bot v1.0.1) is supported with security
+updates. Utilizing previous versions is advised at the discretion of
+the user.
 
 ## Reporting a Vulnerability
 

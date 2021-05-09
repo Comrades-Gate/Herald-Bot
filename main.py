@@ -14,4 +14,5 @@ async def on_message(message):
     if message.content.startswith('216!'):
         await message.channel.send('IM NOT FINISHED YET')
 
-client.run(os.getenv('TOKEN'))
+my_secret = os.environ['TOKEN']
+client.run(my_secret)

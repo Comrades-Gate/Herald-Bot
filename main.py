@@ -63,7 +63,7 @@ async def quote(message):
   await message.channel.send(q)
 
 #/hb suggest
-@bot.command(ctzaliases = ['sug'])
+@bot.command(aliases = ['sug'])
 async def suggest(ctx, *, arg):
   embed = discord.Embed(title='Herald Bot Suggestions', description=f'Submitted by: {ctx.author.mention}', color=discord.Color.green())
   embed.add_field(name='Suggestion', value=arg)

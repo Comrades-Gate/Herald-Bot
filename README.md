@@ -1,4 +1,4 @@
-# Herald-Bot
+# Herald Bot
 
 Created by Xxscorchxx5#4815. 
 Contact me on Discord! (https://discord.gg/964zKCgkdx)

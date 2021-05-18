@@ -10,6 +10,7 @@ discord = "^1.0.1"
 pandas = "^1.2.4"
 flask = "^1.1.2"
 lib = "^3.0.0"
+apscheduler = "^3.7.0"
 
 [tool.poetry.dev-dependencies]
 
